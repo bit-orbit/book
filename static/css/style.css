@@ -584,3 +584,10 @@ a:hover {
   flex-wrap: wrap;
   margin-top: auto;
 }
+
+/* Backlog & Contributor Badge */
+.book-status.backlog {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}

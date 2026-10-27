@@ -1,14 +1,14 @@
 {{ define "main" }}
 <div class="container" style="padding: 60px 24px;">
   <div class="section-head" style="text-align: right; margin-bottom: 40px;">
-    <h1 class="section-title">فهرست کتاب‌های ترجمه‌شده</h1>
-    <p class="section-desc" style="margin: 0;">مجموعه کتاب‌های تخصصی مهندسی، برنامه‌نویسی، معماری سیستم و فناوری با انتشار آزاد</p>
+    <h1 class="section-title">فهرست کامل کتاب‌ها و صف ترجمه</h1>
+    <p class="section-desc" style="margin: 0;">مجموعه کتاب‌های تخصصی مهندسی نرم‌افزار، معماری سیستم، برنامه‌نویسی و فناوری با انتشار آزاد</p>
   </div>
 
   <div class="books-grid">
     {{ range .Pages }}
     <div class="book-card">
-      <div class="book-status">{{ .Params.status | default "منتشر شده" }}</div>
+      <div class="book-status{{ if not .Params.downloadUrl }} backlog{{ end }}">{{ .Params.status | default "منتشر شده" }}</div>
       <h3 class="book-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
       <div class="book-orig">{{ .Params.originalTitle }}</div>
       
@@ -31,6 +31,11 @@
         <a href="{{ . }}" class="btn btn-primary btn-sm">📥 دانلود PDF</a>
         {{ end }}
         <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">مطالعه جزئیات</a>
+        {{ with .Params.githubRepo }}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+          {{ if $.Params.downloadUrl }}⭐️ مخزن گیت‌هاب{{ else }}🤝 مشارکت در ترجمه{{ end }}
+        </a>
+        {{ end }}
       </div>
     </div>
     {{ end }}

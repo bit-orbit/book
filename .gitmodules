@@ -1,3 +1,51 @@
 [submodule "books/the-kubernetes-book-2025"]
 	path = books/the-kubernetes-book-2025
 	url = https://github.com/bit-orbit/Poulton-N-The-Kubernetes-Book-2025-Edition.git
+[submodule "books/Steele-T-Black-Hat-Go"]
+	path = books/Steele-T-Black-Hat-Go
+	url = https://github.com/bit-orbit/Steele-T-Black-Hat-Go.git
+[submodule "books/Cox-Buday-K-Concurrency-in-Go"]
+	path = books/Cox-Buday-K-Concurrency-in-Go
+	url = https://github.com/bit-orbit/Cox-Buday-K-Concurrency-in-Go.git
+[submodule "books/Sharvit-Y-Data-Oriented-Programming"]
+	path = books/Sharvit-Y-Data-Oriented-Programming
+	url = https://github.com/bit-orbit/Sharvit-Y-Data-Oriented-Programming.git
+[submodule "books/van-Steen-M-Distributed-Systems-3rd-Edition"]
+	path = books/van-Steen-M-Distributed-Systems-3rd-Edition
+	url = https://github.com/bit-orbit/van-Steen-M-Distributed-Systems-3rd-Edition.git
+[submodule "books/Redmond-E-Seven-Databases-in-Seven-Weeks"]
+	path = books/Redmond-E-Seven-Databases-in-Seven-Weeks
+	url = https://github.com/bit-orbit/Redmond-E-Seven-Databases-in-Seven-Weeks.git
+[submodule "books/Smolka-M-Go-with-the-Domain"]
+	path = books/Smolka-M-Go-with-the-Domain
+	url = https://github.com/bit-orbit/Smolka-M-Go-with-the-Domain.git
+[submodule "books/Harsanyi-T-100-Go-Mistakes-and-How-to-Avoid-Them"]
+	path = books/Harsanyi-T-100-Go-Mistakes-and-How-to-Avoid-Them
+	url = https://github.com/bit-orbit/Harsanyi-T-100-Go-Mistakes-and-How-to-Avoid-Them.git
+[submodule "books/Woodbeck-A-Network-Programming-with-Go"]
+	path = books/Woodbeck-A-Network-Programming-with-Go
+	url = https://github.com/bit-orbit/Woodbeck-A-Network-Programming-with-Go.git
+[submodule "books/Bader-D-Python-Tricks"]
+	path = books/Bader-D-Python-Tricks
+	url = https://github.com/bit-orbit/Bader-D-Python-Tricks.git
+[submodule "books/Halfacree-G-Raspberry-Pi-Pico-MicroPython"]
+	path = books/Halfacree-G-Raspberry-Pi-Pico-MicroPython
+	url = https://github.com/bit-orbit/Halfacree-G-Raspberry-Pi-Pico-MicroPython.git
+[submodule "books/Winters-T-Software-Engineering-at-Google"]
+	path = books/Winters-T-Software-Engineering-at-Google
+	url = https://github.com/bit-orbit/Winters-T-Software-Engineering-at-Google.git
+[submodule "books/Beyer-B-The-Site-Reliability-Workbook"]
+	path = books/Beyer-B-The-Site-Reliability-Workbook
+	url = https://github.com/bit-orbit/Beyer-B-The-Site-Reliability-Workbook.git
+[submodule "books/Ball-T-Writing-A-Compiler-In-Go"]
+	path = books/Ball-T-Writing-A-Compiler-In-Go
+	url = https://github.com/bit-orbit/Ball-T-Writing-A-Compiler-In-Go.git
+[submodule "books/Ball-T-Writing-An-Interpreter-In-Go"]
+	path = books/Ball-T-Writing-An-Interpreter-In-Go
+	url = https://github.com/bit-orbit/Ball-T-Writing-An-Interpreter-In-Go.git
+[submodule "books/Xu-A-System-Design-Interview-Vol-1"]
+	path = books/Xu-A-System-Design-Interview-Vol-1
+	url = https://github.com/bit-orbit/Xu-A-System-Design-Interview-Vol-1.git
+[submodule "books/Xu-A-System-Design-Interview-Vol-2"]
+	path = books/Xu-A-System-Design-Interview-Vol-2
+	url = https://github.com/bit-orbit/Xu-A-System-Design-Interview-Vol-2.git

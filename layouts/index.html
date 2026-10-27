@@ -11,18 +11,18 @@
     <div class="hero-cta">
       <a href="#books" class="btn btn-primary">
         <span>📚</span>
-        <span>مشاهده و دانلود کتاب‌ها</span>
+        <span>مشاهده کاتالوگ کتاب‌ها</span>
       </a>
       <a href="https://github.com/bit-orbit/book" target="_blank" rel="noopener" class="btn btn-outline">
         <span>⭐️</span>
-        <span>مشارکت در گیت‌هاب</span>
+        <span>مشارکت در هاب گیت‌هاب</span>
       </a>
     </div>
 
     <div class="stats-row">
       <div class="stat-box">
-        <div class="stat-num">PDF & Web</div>
-        <div class="stat-text">نسخه‌های باکیفیت چاپی و الکترونیکی</div>
+        <div class="stat-num">۱۷ عنوان</div>
+        <div class="stat-text">کتاب‌های تخصصی، سیستمی و مهندسی</div>
       </div>
       <div class="stat-box">
         <div class="stat-num">۱۰۰٪</div>
@@ -42,15 +42,15 @@
 
 <section id="books" class="container">
   <div class="section-head">
-    <span class="section-badge">کاتالوگ کتاب‌ها</span>
-    <h2 class="section-title">📚 کتاب‌های منتشرشده و در حال آماده‌سازی</h2>
-    <p class="section-desc">کتاب‌های زیر به صورت کامل ترجمه شده یا در حال توسعه هستند و نسخه‌های چاپی/الکترونیکی PDF آن‌ها به رایگان قابل دریافت است:</p>
+    <span class="section-badge">کاتالوگ و صف ترجمه</span>
+    <h2 class="section-title">📚 کتاب‌های منتشرشده و نیازمند مترجم</h2>
+    <p class="section-desc">کتاب‌های زیر شامل نسخه‌های ترجمه‌شده و همچنین کتاب‌های ارزشمند در صف ترجمه هستند که مهندسان و هوش‌های مصنوعی می‌توانند در بازتفسیر آن‌ها مشارکت کنند:</p>
   </div>
 
   <div class="books-grid">
     {{ range where .Site.RegularPages "Section" "books" }}
     <div class="book-card">
-      <div class="book-status">{{ .Params.status | default "منتشر شده" }}</div>
+      <div class="book-status{{ if not .Params.downloadUrl }} backlog{{ end }}">{{ .Params.status | default "منتشر شده" }}</div>
       <h3 class="book-title">{{ .Title }}</h3>
       <div class="book-orig">{{ .Params.originalTitle }}</div>
       
@@ -70,11 +70,13 @@
 
       <div class="book-btn-row">
         {{ with .Params.downloadUrl }}
-        <a href="{{ . }}" class="btn btn-primary btn-sm">📥 دانلود PDF کتاب</a>
+        <a href="{{ . }}" class="btn btn-primary btn-sm">📥 دانلود PDF کامل</a>
         {{ end }}
-        <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">📖 جزئیات و سرفصل‌ها</a>
+        <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">📖 سرفصل‌ها و جزئیات</a>
         {{ with .Params.githubRepo }}
-        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⭐️ مخزن گیت‌هاب</a>
+        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+          {{ if $.Params.downloadUrl }}⭐️ مخزن گیت‌هاب{{ else }}🤝 مشارکت در ترجمه{{ end }}
+        </a>
         {{ end }}
       </div>
     </div>
