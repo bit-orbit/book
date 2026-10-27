@@ -1,49 +1,46 @@
 <!DOCTYPE html>
-{{ $.Scratch.Delete "social_list" }}
-{{ $social_params := slice "github" "twitter" "bluesky" "instagram" "rss" }}
-{{ range $social_params }}
-    {{ if isset site.Params.social . }}
-        {{ $.Scratch.Add "social_list" (slice .) }}
-    {{ end }}
-{{ end }}
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="{{ site.Home.RelPermalink }}" class="brand">
+        <div class="brand-icon">⚡</div>
+        <span>Open DevOps Books</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="{{ site.Home.RelPermalink }}" class="nav-link">صفحه اصلی</a></li>
+          <li><a href="{{ "books/" | relURL }}" class="nav-link">فهرست کتاب‌ها</a></li>
+          <li><a href="{{ site.Home.RelPermalink }}#features" class="nav-link">اصول ترجمه</a></li>
+          <li>
+            <a href="https://github.com/bit-orbit/book" target="_blank" rel="noopener" class="btn-github">
+              <span>⭐️ GitHub</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<html lang="{{ site.LanguageCode }}" dir="rtl">
-    {{- partial "head.html" . -}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-      body, h1, h2, h3, h4, h5, h6, .btn, .navbar, .navigation-menu, .footer, .card {
-        font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-      }
-      [dir="rtl"] {
-        text-align: right;
-      }
-      [dir="rtl"] .nav-right {
-        margin-left: auto;
-        margin-right: 0;
-      }
-      [dir="rtl"] {
-        text-align: left;
-      }
-    </style>
-    <body>
-        <div>
-            {{- partial "header.html" . -}}
-        </div>
-        <div class="mb-4" id="content">
-            {{- block "main" . }}{{- end }}
-        </div>
-        {{- partial "footer.html" . -}}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
 
-        {{ $app := resources.Get "/js/app.js" }}
-        {{- if not hugo.IsServer }}
-            {{- $js := (slice $app) | resources.Concat "/js/bundle.js" | minify | fingerprint "sha384" }}
-            <script type="text/javascript" src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}"></script>
-        {{- else }}
-            {{- $js := (slice $app) | resources.Concat "/js/bundle.js" }}
-            <script type="text/javascript" src="{{ $js.Permalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }}></script>
-        {{- end }}
-        {{- partial "hooks/body-end.html" . -}}
-    </body>
+  <footer class="site-footer">
+    <div class="container">
+      <p>طراحی و توسعه برای جامعه مهندسی نرم‌افزار، دواپس و رایانش ابری ایران 🇮🇷 • تمامی محتواها به‌صورت آزاد و منبع‌باز منتشر می‌شوند.</p>
+      <p class="footer-sub">توسعه‌یافته با Hugo و صفحه‌آرایی تخصصی چاپی با موتور قدرتمند Typst</p>
+    </div>
+  </footer>
+</body>
 </html>

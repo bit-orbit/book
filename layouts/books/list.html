@@ -1,28 +1,36 @@
 {{ define "main" }}
 <div class="container" style="padding: 60px 24px;">
-  <h1 class="section-title">فهرست تمام کتاب‌های ترجمه‌شده</h1>
-  <p class="section-desc">مجموعه کتاب‌های تخصصی مهندسی، دوآپس، سیستم‌های توزیع‌شده و لینوکس</p>
+  <div class="section-head" style="text-align: right; margin-bottom: 40px;">
+    <h1 class="section-title">فهرست کتاب‌های ترجمه‌شده</h1>
+    <p class="section-desc" style="margin: 0;">مجموعه کتاب‌های تخصصی مهندسی ابری، دوآپس، سیستم‌های توزیع‌شده و لینوکس با انتشار آزاد</p>
+  </div>
 
   <div class="books-grid">
     {{ range .Pages }}
     <div class="book-card">
-      <div class="book-badge">{{ .Params.status | default "منتشر شده" }}</div>
+      <div class="book-status">{{ .Params.status | default "منتشر شده" }}</div>
       <h3 class="book-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-      <div class="book-orig-title">{{ .Params.originalTitle }}</div>
+      <div class="book-orig">{{ .Params.originalTitle }}</div>
       
-      <div class="book-meta">
+      <div class="book-info-row">
         <span>✍️ <strong>نویسنده:</strong> {{ .Params.author }}</span>
         <span>👥 <strong>مترجم:</strong> {{ .Params.translator }}</span>
         {{ with .Params.pages }}<span>📄 {{ . }} صفحه</span>{{ end }}
       </div>
 
-      <p class="book-desc">{{ .Description | default .Summary }}</p>
+      <p class="book-desc">{{ .Params.description | default .Summary }}</p>
 
-      <div class="book-footer">
-        {{ with .Params.downloadUrl }}
-        <a href="{{ . }}" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.9rem;">📥 دانلود PDF</a>
+      <div class="book-tags">
+        {{ range .Params.tags }}
+        <span class="tag-badge">#{{ . }}</span>
         {{ end }}
-        <a href="{{ .RelPermalink }}" class="btn btn-secondary" style="padding: 8px 18px; font-size: 0.9rem;">مطالعه جزئیات</a>
+      </div>
+
+      <div class="book-btn-row">
+        {{ with .Params.downloadUrl }}
+        <a href="{{ . }}" class="btn btn-primary btn-sm">📥 دانلود PDF</a>
+        {{ end }}
+        <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">مطالعه جزئیات</a>
       </div>
     </div>
     {{ end }}

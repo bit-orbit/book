@@ -6,8 +6,8 @@ translator: "مجموعه مهندسی DevOps"
 status: "آماده دانلود • ویرایش کامل"
 pages: 180
 version: "همگام با کوبرنتیز v1.32"
-downloadUrl: "/downloads/The-Kubernetes-Book-2025-Persian.pdf"
-githubRepo: "https://github.com/your-org/the-kubernetes-book-2025-fa"
+downloadUrl: "https://github.com/bit-orbit/Poulton-N-The-Kubernetes-Book-2025-Edition/raw/master/The-Kubernetes-Book-2025-Persian.pdf"
+githubRepo: "https://github.com/bit-orbit/Poulton-N-The-Kubernetes-Book-2025-Edition"
 tags: ["Kubernetes", "DevOps", "Cloud-Native", "Containers", "Wasm", "Typst"]
 description: "ترجمه و تحلیل عمیق مهندسی کتاب مرجع نایجل پولتون؛ شامل بررسی عمیق پادها، دیپلویمنت‌ها، سرویس‌ها، معماری اینگرس، وب‌اسمبلی، استیت‌فول‌ست‌ها، کالبدشکافی سرور API و امنیت با مدل STRIDE."
 ---
