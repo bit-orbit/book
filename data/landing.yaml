@@ -1,0 +1,51 @@
+# Hero Section
+hero:
+  enable: true
+  weight: 10
+  template: hero
+
+  badge:
+    text: "نسخه ۲۰۲۵ • کوبرنتیز v1.32"
+    color: info
+    pill: true
+    soft: true
+
+  title: "پورتال کتاب‌های مهندسی و DevOps"
+  subtitle: "ترجمه تفسیری، روان و عمیق معتبرترین آثار مهندسی ابری با ادبیات اصیل فنی (**Developer Persian**)؛ همراه با صفحه‌آرایی مدرن Typst برای انتشار چاپی و آنلاین."
+
+  ctaButton:
+    icon: library_books
+    btnText: "مشاهده و دانلود کتاب‌ها"
+    url: "/books/"
+  cta2Button:
+    icon: code
+    btnText: "مخزن گیت‌هاب پروژه"
+    url: "https://github.com/bit-orbit/book"
+
+  info: "🚀 **پروژه ۱۰۰٪ منبع‌باز و رایگان** برای جامعه مهندسی نرم‌افزار و DevOps ایران."
+
+# Feature Grid Section
+featureGrid:
+  enable: true
+  weight: 20
+  template: feature grid
+
+  title: "چرا این پروژه متمایز است؟"
+  subtitle: "ما کتاب‌ها را کلمه‌به‌کلمه ترجمه نمی‌کنیم؛ بلکه آن‌ها را با تجربیات پروداکشن برای مهندسان بازتفسیر می‌نماییم."
+
+  items:
+    - title: "تفسیر مفهومی و عمیق"
+      icon: psychology
+      description: "به جای ترجمه ماشینی، فلسفه طراحی، سناریوهای شکست در پروداکشن و منطق معماری ابزارها به طور دقیق بازنویسی می‌شوند."
+
+    - title: "ادبیات مهندسی (Developer Persian)"
+      icon: terminal
+      description: "اصطلاحات استاندارد صنعتی دست‌نخورده باقی می‌مانند: اسکیل (Scale)، دیپلویمنت (Deploy)، پایپ‌لاین (Pipeline)، کش، اینگرس و رول‌بک."
+
+    - title: "صفحه‌آرایی نفیس با Typst"
+      icon: auto_stories
+      description: "خروجی کتاب‌های الکترونیکی با کیفیت چاپ بالا، فونت چشم‌نواز وزیرمتن (Vazirmatn)، نمودارها و باکس‌های راهنما (نکته، هشدار، مفهوم)."
+
+    - title: "معماری ماژولار و ساب‌ماژول"
+      icon: account_tree
+      description: "هر کتاب در ریپوی مستقل خود توسعه یافته و به عنوان ساب‌ماژول گیت با انتشار خودکار PDF روی GitHub Releases مدیریت می‌شود."

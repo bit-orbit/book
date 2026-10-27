@@ -1,33 +1,82 @@
 baseURL = 'https://bit-orbit.github.io/book/'
-languageCode = 'fa-ir'
+languageCode = 'fa'
 title = 'پورتال کتاب‌های مهندسی و DevOps'
 defaultContentLanguage = 'fa'
+enableEmoji = true
 
 [languages]
   [languages.fa]
+    title = 'پورتال کتاب‌های مهندسی و DevOps'
     languageName = 'فارسی'
-    title = 'پورتال کتاب‌های تخصصی مهندسی و DevOps'
-    weight = 1
+    languageCode = 'fa-IR'
+    weight = 10
+    direction = 'rtl'
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.100.0"
+  [[module.imports]]
+    path = "github.com/colinwilson/lotusdocs"
+    disable = false
+  [[module.imports]]
+    path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
+    disable = false
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 1
+  [markup.goldmark.renderer]
+    unsafe = true
 
 [params]
-  description = 'ترجمه و تفسیر عمیق معتبرترین کتاب‌های مهندسی نرم‌افزار، کلاود و دواپس به زبان فارسی تخصصی مهندسی'
-  author = 'جامعه DevOps و مهندسی نرم‌افزار'
-  github = 'https://github.com/bit-orbit'
-  keywords = ['Kubernetes', 'DevOps', 'Docker', 'Linux', 'Cloud-Native', 'کتاب کوبرنتیز', 'ترجمه فارسی']
+  google_fonts = [
+    ["Vazirmatn", "300, 400, 500, 600, 700, 800, 900"]
+  ]
+
+  sans_serif_font = "Vazirmatn"
+  secondary_font  = "Vazirmatn"
+  mono_font       = "monospace"
+
+  [params.footer]
+    copyright = "توسعه‌یافته برای جامعه DevOps و مهندسی نرم‌افزار ایران 🇮🇷 • بر پایه [**Lotus Docs**](https://github.com/colinwilson/lotusdocs)"
+
+  [params.social]
+    github = "https://github.com/bit-orbit/book"
+
+  [params.docs]
+    title           = "پورتال کتاب‌های مهندسی و DevOps"
+    themeColor      = "cyan"
+    darkMode        = true
+    prism           = true
+    prismTheme      = "lotusdocs"
+    repoURL         = "https://github.com/bit-orbit/book"
+    repoBranch      = "master"
+    breadcrumbs     = true
+    backToTop       = true
+    toc             = true
+    tocMobile       = true
+    scrollSpy       = true
+    sidebarIcons    = true
+
+  [params.flexsearch]
+    enabled         = true
 
 [menu]
-  [[menu.main]]
-    identifier = 'books'
-    name = 'کتاب‌ها'
-    url = '/books/'
+  [[menu.primary]]
+    name = "صفحه اصلی"
+    url = "/"
+    identifier = "home"
     weight = 10
-  [[menu.main]]
-    identifier = 'about'
-    name = 'درباره پروژه'
-    url = '/#about'
+  [[menu.primary]]
+    name = "کتاب‌ها"
+    url = "/books/"
+    identifier = "books"
     weight = 20
-  [[menu.main]]
-    identifier = 'github'
-    name = 'مخزن گیت‌هاب'
-    url = 'https://github.com/bit-orbit/book'
+  [[menu.primary]]
+    name = "مخزن گیت‌هاب"
+    url = "https://github.com/bit-orbit/book"
+    identifier = "github"
     weight = 30

@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-</head>
-<body>
-  {{ partial "header.html" . }}
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-  {{ partial "footer.html" . }}
-</body>
+{{ $.Scratch.Delete "social_list" }}
+{{ $social_params := slice "github" "twitter" "bluesky" "instagram" "rss" }}
+{{ range $social_params }}
+    {{ if isset site.Params.social . }}
+        {{ $.Scratch.Add "social_list" (slice .) }}
+    {{ end }}
+{{ end }}
+
+<html lang="{{ site.LanguageCode }}" dir="rtl">
+    {{- partial "head.html" . -}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body, h1, h2, h3, h4, h5, h6, .btn, .navbar, .navigation-menu, .footer, .card {
+        font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      }
+      [dir="rtl"] {
+        text-align: right;
+      }
+      [dir="rtl"] .nav-right {
+        margin-left: auto;
+        margin-right: 0;
+      }
+      [dir="rtl"] {
+        text-align: left;
+      }
+    </style>
+    <body>
+        <div>
+            {{- partial "header.html" . -}}
+        </div>
+        <div class="mb-4" id="content">
+            {{- block "main" . }}{{- end }}
+        </div>
+        {{- partial "footer.html" . -}}
+
+        {{ $app := resources.Get "/js/app.js" }}
+        {{- if not hugo.IsServer }}
+            {{- $js := (slice $app) | resources.Concat "/js/bundle.js" | minify | fingerprint "sha384" }}
+            <script type="text/javascript" src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+        {{- else }}
+            {{- $js := (slice $app) | resources.Concat "/js/bundle.js" }}
+            <script type="text/javascript" src="{{ $js.Permalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }}></script>
+        {{- end }}
+        {{- partial "hooks/body-end.html" . -}}
+    </body>
 </html>
