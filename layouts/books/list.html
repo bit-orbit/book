@@ -1,44 +1,111 @@
 {{ define "main" }}
 <div class="container" style="padding: 60px 24px;">
-  <div class="section-head" style="text-align: right; margin-bottom: 40px;">
-    <h1 class="section-title">فهرست کامل کتاب‌ها و صف ترجمه</h1>
-    <p class="section-desc" style="margin: 0;">مجموعه کتاب‌های تخصصی مهندسی نرم‌افزار، معماری سیستم، برنامه‌نویسی و فناوری با انتشار آزاد</p>
+
+{{/* Group books into published vs backlog */}}
+{{ $published := slice }}
+{{ $backlog := slice }}
+{{ range .Pages }}
+  {{ if .Params.downloadUrl }}
+    {{ $published = $published | append . }}
+  {{ else }}
+    {{ $backlog = $backlog | append . }}
+  {{ end }}
+{{ end }}
+
+  <div class="section-head" style="text-align: right; margin-bottom: 35px;">
+    <span class="section-badge" style="background: rgba(52, 211, 153, 0.15); color: var(--emerald); border-color: rgba(52, 211, 153, 0.35);">نسخه‌های منتشرشده</span>
+    <h1 class="section-title">✅ کتاب‌های ترجمه‌شده و آماده مطالعه</h1>
+    <p class="section-desc" style="margin: 0;">کتاب‌های ترجمه‌شده با نسخه چاپی و PDF رایگان:</p>
   </div>
 
-  <div class="books-grid">
-    {{ range .Pages }}
-    <div class="book-card">
-      <div class="book-status{{ if not .Params.downloadUrl }} backlog{{ end }}">{{ .Params.status | default "منتشر شده" }}</div>
-      <h3 class="book-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-      <div class="book-orig">{{ .Params.originalTitle }}</div>
-      
-      <div class="book-info-row">
-        <span>✍️ <strong>نویسنده:</strong> {{ .Params.author }}</span>
-        <span>👥 <strong>مترجم:</strong> {{ .Params.translator }}</span>
-        {{ with .Params.pages }}<span>📄 {{ . }} صفحه</span>{{ end }}
+  <div class="books-list">
+    {{ range $published }}
+    <div class="book-row-card published">
+      <div class="book-row-top">
+        <div class="book-row-title-wrap">
+          <h2 class="book-row-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <span class="book-row-orig">{{ .Params.originalTitle }}</span>
+        </div>
+        <span class="book-status">{{ .Params.status | default "منتشر شده" }}</span>
       </div>
 
-      <p class="book-desc">{{ .Params.description | default .Summary }}</p>
+      <p class="book-row-desc">{{ .Params.description | default .Summary }}</p>
 
-      <div class="book-tags">
+      <div class="book-tags" style="margin-bottom: 12px;">
         {{ range .Params.tags }}
         <span class="tag-badge">#{{ . }}</span>
         {{ end }}
       </div>
 
-      <div class="book-btn-row">
-        {{ with .Params.downloadUrl }}
-        <a href="{{ . }}" class="btn btn-primary btn-sm">📥 دانلود PDF</a>
-        {{ end }}
-        <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">مطالعه جزئیات</a>
-        {{ with .Params.githubRepo }}
-        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
-          {{ if $.Params.downloadUrl }}⭐️ مخزن گیت‌هاب{{ else }}🤝 مشارکت در ترجمه{{ end }}
-        </a>
-        {{ end }}
+      <div class="book-row-bottom">
+        <div class="book-row-meta">
+          <span>✍️ <strong>نویسنده:</strong> {{ .Params.author }}</span>
+          <span>👥 <strong>مترجم:</strong> {{ .Params.translator }}</span>
+          {{ with .Params.pages }}<span>📄 {{ . }} صفحه</span>{{ end }}
+        </div>
+
+        <div class="book-row-actions">
+          {{ with .Params.downloadUrl }}
+          <a href="{{ . }}" class="btn btn-primary btn-sm">📥 دانلود PDF</a>
+          {{ end }}
+          <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">مطالعه جزئیات</a>
+          {{ with .Params.githubRepo }}
+          <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⭐️ مخزن گیت‌هاب</a>
+          {{ end }}
+        </div>
       </div>
     </div>
+    {{ else }}
+    <p style="color: var(--text-muted); text-align: center; padding: 30px;">کتاب ترجمه‌شده‌ای یافت نشد.</p>
     {{ end }}
   </div>
+
+  <hr class="section-divider">
+
+  <div class="section-head" style="text-align: right; margin-bottom: 35px;">
+    <span class="section-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.35);">فراخوان مشارکت در ترجمه</span>
+    <h2 class="section-title">⏳ کتاب‌های در صف ترجمه (نیازمند مترجم و متخصص فنی)</h2>
+    <p class="section-desc" style="margin: 0;">کتاب‌های دارای مخزن اختصاصی، فایل مرجع و نقشه راه جهت ترجمه و بازتفسیر مفهومی:</p>
+  </div>
+
+  <div class="books-list">
+    {{ range $backlog }}
+    <div class="book-row-card backlog">
+      <div class="book-row-top">
+        <div class="book-row-title-wrap">
+          <h2 class="book-row-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <span class="book-row-orig">{{ .Params.originalTitle }}</span>
+        </div>
+        <span class="book-status backlog">{{ .Params.status | default "در صف ترجمه" }}</span>
+      </div>
+
+      <p class="book-row-desc">{{ .Params.description | default .Summary }}</p>
+
+      <div class="book-tags" style="margin-bottom: 12px;">
+        {{ range .Params.tags }}
+        <span class="tag-badge">#{{ . }}</span>
+        {{ end }}
+      </div>
+
+      <div class="book-row-bottom">
+        <div class="book-row-meta">
+          <span>✍️ <strong>نویسنده:</strong> {{ .Params.author }}</span>
+          <span>👥 <strong>مترجم:</strong> {{ .Params.translator }}</span>
+          {{ with .Params.pages }}<span>📄 {{ . }} صفحه</span>{{ end }}
+        </div>
+
+        <div class="book-row-actions">
+          <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">📖 سرفصل‌ها و نقشه راه</a>
+          {{ with .Params.githubRepo }}
+          <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🤝 مشارکت در ترجمه</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ else }}
+    <p style="color: var(--text-muted); text-align: center; padding: 30px;">هیچ کتابی در صف ترجمه موجود نیست.</p>
+    {{ end }}
+  </div>
+
 </div>
 {{ end }}
