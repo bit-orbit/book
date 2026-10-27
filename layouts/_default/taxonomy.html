@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="container" style="padding: 60px 24px;">
+  <h1 class="section-title">{{ .Title }}</h1>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+    {{ range .Data.Terms }}
+    <a href="{{ .Page.RelPermalink }}" class="tag" style="font-size: 1rem; padding: 6px 14px;">#{{ .Page.Title }} ({{ .Count }})</a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

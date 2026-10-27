@@ -1,0 +1,33 @@
+baseURL = 'https://books.devops.ir/'
+languageCode = 'fa-ir'
+title = 'پورتال کتاب‌های مهندسی و DevOps'
+defaultContentLanguage = 'fa'
+
+[languages]
+  [languages.fa]
+    languageName = 'فارسی'
+    title = 'پورتال کتاب‌های تخصصی مهندسی و DevOps'
+    weight = 1
+
+[params]
+  description = 'ترجمه و تفسیر عمیق معتبرترین کتاب‌های مهندسی نرم‌افزار، کلاود و دواپس به زبان فارسی تخصصی مهندسی'
+  author = 'جامعه DevOps و مهندسی نرم‌افزار'
+  github = 'https://github.com/arya'
+  keywords = ['Kubernetes', 'DevOps', 'Docker', 'Linux', 'Cloud-Native', 'کتاب کوبرنتیز', 'ترجمه فارسی']
+
+[menu]
+  [[menu.main]]
+    identifier = 'books'
+    name = 'کتاب‌ها'
+    url = '/books/'
+    weight = 10
+  [[menu.main]]
+    identifier = 'about'
+    name = 'درباره پروژه'
+    url = '/#about'
+    weight = 20
+  [[menu.main]]
+    identifier = 'github'
+    name = 'مخزن گیت‌هاب'
+    url = 'https://github.com/'
+    weight = 30

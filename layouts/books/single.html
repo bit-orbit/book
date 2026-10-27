@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="container" style="padding: 60px 24px; max-width: 900px;">
+  <a href="/books/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← بازگشت به فهرست کتاب‌ها</a>
+  
+  <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 36px; margin-bottom: 40px;">
+    <div class="book-badge" style="position: static; display: inline-block; margin-bottom: 16px;">{{ .Params.status | default "ویرایش کامل ۲۰۲۵" }}</div>
+    <h1 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 8px;">{{ .Title }}</h1>
+    <div class="book-orig-title" style="font-size: 1.1rem; margin-bottom: 24px;">{{ .Params.originalTitle }}</div>
+
+    <div class="book-meta" style="font-size: 0.95rem; margin-bottom: 24px; gap: 20px;">
+      <span>✍️ <strong>نویسنده:</strong> {{ .Params.author }}</span>
+      <span>👥 <strong>مترجم:</strong> {{ .Params.translator }}</span>
+      {{ with .Params.pages }}<span>📄 <strong>تعداد صفحات:</strong> {{ . }}</span>{{ end }}
+      {{ with .Params.version }}<span>🏷️ <strong>نسخه:</strong> {{ . }}</span>{{ end }}
+    </div>
+
+    <div class="book-tags" style="margin-bottom: 30px;">
+      {{ range .Params.tags }}
+      <span class="tag">#{{ . }}</span>
+      {{ end }}
+    </div>
+
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+      {{ with .Params.downloadUrl }}
+      <a href="{{ . }}" class="btn btn-primary">📥 دانلود نسخه کامل کتاب (PDF)</a>
+      {{ end }}
+      {{ with .Params.githubRepo }}
+      <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-secondary">⭐️ مخزن گیت‌هاب کتاب</a>
+      {{ end }}
+    </div>
+  </div>
+
+  <article style="line-height: 1.9; font-size: 1.05rem; color: #e2e8f0;">
+    {{ .Content }}
+  </article>
+</div>
+{{ end }}

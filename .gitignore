@@ -1,0 +1,17 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Large downloaded assets
+static/downloads/*.pdf
