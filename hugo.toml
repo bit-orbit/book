@@ -1,12 +1,12 @@
-baseURL = 'https://bit-orbit.github.io/book/'
+baseURL = 'https://wiregeek.ir/book/'
 languageCode = 'fa'
-title = 'پورتال کتاب‌های مهندسی و DevOps'
+title = 'Book'
 defaultContentLanguage = 'fa'
 enableEmoji = true
 
 [languages]
   [languages.fa]
-    title = 'پورتال کتاب‌های مهندسی و DevOps'
+    title = 'Book'
     languageName = 'فارسی'
     languageCode = 'fa-IR'
     weight = 10
@@ -41,13 +41,13 @@ enableEmoji = true
   mono_font       = "monospace"
 
   [params.footer]
-    copyright = "توسعه‌یافته برای جامعه DevOps و مهندسی نرم‌افزار ایران 🇮🇷 • بر پایه [**Lotus Docs**](https://github.com/colinwilson/lotusdocs)"
+    copyright = "توسعه‌یافته برای جامعه مهندسی نرم‌افزار و برنامه‌نویسان 🇮🇷 • انتشار آزاد و منبع‌باز"
 
   [params.social]
     github = "https://github.com/bit-orbit/book"
 
   [params.docs]
-    title           = "پورتال کتاب‌های مهندسی و DevOps"
+    title           = "Book"
     themeColor      = "cyan"
     darkMode        = true
     prism           = true

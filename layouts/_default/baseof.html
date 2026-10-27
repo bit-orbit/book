@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}مرجع آزاد کتاب‌ها و مراجع مهندسی، برنامه‌نویسی و علوم کامپیوتر به فارسی{{ end }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,8 +14,8 @@
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="{{ site.Home.RelPermalink }}" class="brand">
-        <div class="brand-icon">⚡</div>
-        <span>Open DevOps Books</span>
+        <div class="brand-icon">📚</div>
+        <span>Book</span>
       </a>
       <nav>
         <ul class="nav-menu">
@@ -38,7 +38,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>طراحی و توسعه برای جامعه مهندسی نرم‌افزار، دواپس و رایانش ابری ایران 🇮🇷 • تمامی محتواها به‌صورت آزاد و منبع‌باز منتشر می‌شوند.</p>
+      <p>طراحی و توسعه برای جامعه مهندسی نرم‌افزار، برنامه‌نویسان و پژوهشگران فناوری 🇮🇷 • تمامی محتواها به‌صورت آزاد و منبع‌باز منتشر می‌شوند.</p>
       <p class="footer-sub">توسعه‌یافته با Hugo و صفحه‌آرایی تخصصی چاپی با موتور قدرتمند Typst</p>
     </div>
   </footer>
