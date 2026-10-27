@@ -1,3 +1,3 @@
 [submodule "books/the-kubernetes-book-2025"]
 	path = books/the-kubernetes-book-2025
-	url = git@github.com:bit-orbit/Poulton-N-The-Kubernetes-Book-2025-Edition.git
+	url = https://github.com/bit-orbit/Poulton-N-The-Kubernetes-Book-2025-Edition.git
