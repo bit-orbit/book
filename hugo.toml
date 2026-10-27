@@ -1,4 +1,4 @@
-baseURL = 'https://books.devops.ir/'
+baseURL = 'https://bit-orbit.github.io/book/'
 languageCode = 'fa-ir'
 title = 'پورتال کتاب‌های مهندسی و DevOps'
 defaultContentLanguage = 'fa'
@@ -12,7 +12,7 @@ defaultContentLanguage = 'fa'
 [params]
   description = 'ترجمه و تفسیر عمیق معتبرترین کتاب‌های مهندسی نرم‌افزار، کلاود و دواپس به زبان فارسی تخصصی مهندسی'
   author = 'جامعه DevOps و مهندسی نرم‌افزار'
-  github = 'https://github.com/arya'
+  github = 'https://github.com/bit-orbit'
   keywords = ['Kubernetes', 'DevOps', 'Docker', 'Linux', 'Cloud-Native', 'کتاب کوبرنتیز', 'ترجمه فارسی']
 
 [menu]
@@ -29,5 +29,5 @@ defaultContentLanguage = 'fa'
   [[menu.main]]
     identifier = 'github'
     name = 'مخزن گیت‌هاب'
-    url = 'https://github.com/'
+    url = 'https://github.com/bit-orbit/book'
     weight = 30

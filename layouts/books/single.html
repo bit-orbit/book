@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="container" style="padding: 60px 24px; max-width: 900px;">
-  <a href="/books/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← بازگشت به فهرست کتاب‌ها</a>
+  <a href="{{ "/books/" | relURL }}" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← بازگشت به فهرست کتاب‌ها</a>
   
   <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 36px; margin-bottom: 40px;">
     <div class="book-badge" style="position: static; display: inline-block; margin-bottom: 16px;">{{ .Params.status | default "ویرایش کامل ۲۰۲۵" }}</div>
@@ -22,7 +22,7 @@
 
     <div style="display: flex; gap: 16px; flex-wrap: wrap;">
       {{ with .Params.downloadUrl }}
-      <a href="{{ . }}" class="btn btn-primary">📥 دانلود نسخه کامل کتاب (PDF)</a>
+      <a href="{{ . | relURL }}" class="btn btn-primary">📥 دانلود نسخه کامل کتاب (PDF)</a>
       {{ end }}
       {{ with .Params.githubRepo }}
       <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-secondary">⭐️ مخزن گیت‌هاب کتاب</a>
